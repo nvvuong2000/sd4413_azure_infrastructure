@@ -44,12 +44,13 @@ variable "eks_cluster_name" {
   description = "Name of the EKS cluster."
 }
 
+variable "aws_ecr_repository" {
+  type        = string
+  description = "Name of the ECR repository."
+}
+
 variable "eks_public_access_cidrs" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
   description = "CIDR blocks that can access the EKS API server."
-}
-
-locals {
-  eks_add_ons = ["kube-proxy", "vpc-cni", "coredns"]
 }
